@@ -30,8 +30,17 @@ jobs:
       - name: Create Destination Directory
         run: mkdir -p ${{ github.workspace }}/config
 
-      - name: Copy Configuration File
-        run: cp solution-repo/.github/workflows/${{ env.CONFIG_FILE }} ${{ github.workspace }}/config
+      - name: Copy TDV DDL Configuration File
+        run: cp solution-repo/data_ops_blueprints_tdv_ddl/config/${{ inputs.TDV_Environment }}/liquibase.properties ${{ github.workspace }}/config
+
+      - name: Copy TDV DML Configuration File
+        run: cp solution-repo/data_ops_blueprints_tdv_dml/config/${{ inputs.TDV_Environment }}/liquibase.properties ${{ github.workspace }}/config
+
+      - name: Copy TDV DDL Change Log File
+        run: cp solution-repo/data_ops_blueprints_tdv_ddl/${{ inputs.TDV_Environment }}.changelog.xml ${{ github.workspace }}/config
+
+      - name: Copy TDV DDL Change Log File
+        run: cp solution-repo/data_ops_blueprints_tdv_dml/${{ inputs.TDV_Environment }}.changelog.xml ${{ github.workspace }}/config
 
       - name: Checkout DataOps Repository
         uses: actions/checkout@v4

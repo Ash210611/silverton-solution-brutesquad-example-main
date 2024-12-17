@@ -37,7 +37,7 @@ jobs:
 
       - name: Copy TDV DML Configuration File
         run: |
-          env_lower=$(echo "${{ inputs.TDV_Environment }}" | tr '[:lower:]' '[:upper:]'
+          env_lower=$(echo "${{ inputs.TDV_Environment }}" | tr '[:lower:]' '[:upper:]')
           cp solution-repo/data_ops_blueprints_tdv_dml/config/${env_lower}/liquibase.properties ${{ github.workspace }}/config
 
       - name: Copy TDV DDL Change Log File

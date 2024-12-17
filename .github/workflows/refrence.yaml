@@ -58,4 +58,4 @@ jobs:
           TDV_USER: ${{ secrets.TDV_SERV_USER_DEV }}
           TDV_PASSWORD: ${{ secrets.TDV_SERV_PASSWORD_DEV }}
           TDV_ENV: ${{ inputs.TDV_Environment }}
-          CONFIG_PATH: ${{ github.workspace }}/config/${{ env.CONFIG_FILE }}
+          CONFIG_PATH: ${{ github.workspace }}/config/liquibase.properties

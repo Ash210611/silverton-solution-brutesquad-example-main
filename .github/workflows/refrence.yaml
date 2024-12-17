@@ -21,7 +21,7 @@ jobs:
       - name: Checkout Solution Repository
         uses: actions/checkout@v4
         with:
-          repository: Ash210611/silverton-solution-brutesquad-example
+          repository: Ash210611/silverton-solution-brutesquad-example-main
           path: solution-repo
 
       - name: Set Environment Variables

@@ -1,0 +1,33 @@
+name: "Example Solution Workflow 1" 
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "*" ]
+
+  workflow_dispatch:
+    inputs:
+      TDV_Environment:
+        type: choice
+        description: "Select the environment of the TDV server"
+        options:
+          - DEV
+          - TEST
+          - ITE
+          - PROD
+        default:
+          DEV
+
+jobs:
+  build:
+    # runs-on: MA-Analytics-Runner
+    runs-on : ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: OPS-action
+        uses: zilvertonz/silverton-dataops-brutesquad-example/action1@feature_sandbox-jl
+        with: 
+          TDV_USER: ${{ secrets.TDV_SERV_USER_DEV }}
+          TDV_PASSWORD: ${{ secrets.TDV_SERV_PASSWORD_DEV }}
+          TDV_ENV: ${{ inputs.TDV_Environment }}

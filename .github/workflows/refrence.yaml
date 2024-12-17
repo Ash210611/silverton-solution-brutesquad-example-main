@@ -37,11 +37,15 @@ jobs:
         run: cp solution-repo/data_ops_blueprints_tdv_dml/config/${{ inputs.TDV_Environment }}/liquibase.properties ${{ github.workspace }}/config
 
       - name: Copy TDV DDL Change Log File
-        run: cp solution-repo/data_ops_blueprints_tdv_ddl/${{ inputs.TDV_Environment | tr '[:upper:]' '[:lower:]' }}.changelog.xml ${{ github.workspace }}/config
+        run: |
+          env_lower=$(echo "${{ inputs.TDV_Environment }}" | tr '[:upper:]' '[:lower:]')
+          cp "solution-repo/data_ops_blueprints_tdv_ddl/${env_lower}.changelog.xml" "${{ github.workspace }}/config"
 
       - name: Copy TDV DDL Change Log File
-        run: cp solution-repo/data_ops_blueprints_tdv_dml/${{ inputs.TDV_Environment | tr '[:upper:]' '[:lower:]' }}.changelog.xml ${{ github.workspace }}/config
-
+        run: |
+          env_lower=$(echo "${{ inputs.TDV_Environment }}" | tr '[:upper:]' '[:lower:]')
+          cp "solution-repo/data_ops_blueprints_tdv_ddl/${env_lower}.changelog.xml" "${{ github.workspace }}/config"
+      
       - name: Checkout DataOps Repository
         uses: actions/checkout@v4
         with:

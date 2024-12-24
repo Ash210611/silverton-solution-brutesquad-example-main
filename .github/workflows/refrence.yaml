@@ -53,7 +53,7 @@ jobs:
           path: dataops-repo
 
       - id: OPS-action
-        uses: Ash210611/silverton-dataops-brutesquad-exapmle@main
+        uses: Ash210611/silverton-dataops-brutesquad-exapmle/action1@main
         with: 
           TDV_USER: ${{ secrets.TDV_SERV_USER_DEV }}
           TDV_PASSWORD: ${{ secrets.TDV_SERV_PASSWORD_DEV }}

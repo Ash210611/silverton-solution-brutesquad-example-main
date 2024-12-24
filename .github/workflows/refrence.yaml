@@ -1,4 +1,4 @@
-name: "Example Solution Workflow"
+name: "Example Solution Workflow - Main New"
 
 on:
   workflow_dispatch:
